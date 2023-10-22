@@ -13,11 +13,23 @@
 
       let apiKey = 'be58e108fab3d11eda0130ab7f9e1968a9cc15d3cb7e99b5c83473f5';
       json(`https://api.ipdata.co?api-key=${apiKey}`).then(data => {
-        document.write(data.ip);
+
+        // Latitude
+        // Longitude
+        // City
+        // Region
+        // Time Zone
+
+        document.write(data.latitude);
+        document.write("<br>");
+        document.write(data.longitude);
         document.write("<br>");
         document.write(data.city);
         document.write("<br>");
-        document.write(data.country_code);
+        document.write(data.region);
+        document.write("<br>");
+        // document.write(data.time_zone);
+
         // so many more properties
         for (let i of data) {
           `<tr>
