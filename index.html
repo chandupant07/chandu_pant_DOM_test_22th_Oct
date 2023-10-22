@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    function getIP() {
+      function json(url) {
+        return fetch(url).then(res => res.json());
+      }
+
+      let apiKey = 'be58e108fab3d11eda0130ab7f9e1968a9cc15d3cb7e99b5c83473f5';
+      json(`https://api.ipdata.co?api-key=${apiKey}`).then(data => {
+        document.write(data.ip);
+        document.write("<br>");
+        document.write(data.city);
+        document.write("<br>");
+        document.write(data.country_code);
+        // so many more properties
+        for (let i of data) {
+          `<tr>
+            <td>{i.ip}</td>
+            </tr>`
+        }
+        let h1 = document.getElementsByClassName("text")
+      });
+    }
+  </script>
+</head>
+
+<body>
+  <section>
+    <h2>My Public IP Address</h2>
+    <button onclick="getIP()">Get Data</button>
+    <div class="d-flex justify-content-center">
+      <!-- <div class="spinner-border" role="status" id="loading">
+        <span class="sr-only">Loading...</span>
+      </div> -->
+    </div>
+    <h1>Get Latitude and longitude</h1>
+    <!-- table for showing data -->
+    <table id="location"></table>
+  </section>
+
+  <section>
+
+  </section>
+</body>
+
+</html>
